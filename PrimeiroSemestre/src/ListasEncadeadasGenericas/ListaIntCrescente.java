@@ -19,6 +19,25 @@ public class ListaIntCrescente {
         System.out.println("\n***************************************************");
     }
 
+    public void remove(int valor){
+        if(lista != null){
+            if(valor == lista.dado){
+                lista = lista.prox;
+            }else{
+                NO aux = lista;
+                boolean achou = false;
+                while (aux.prox != null && !achou){
+                    if(aux.prox.dado == valor){
+                        achou = true;
+                    }else{
+                        aux = aux.prox;
+                    }
+                }
+                aux.prox = aux.prox.prox;
+            }
+        }
+    }
+
     public void insere(int elem){
         NO novo = new NO();
         novo.dado = elem;
